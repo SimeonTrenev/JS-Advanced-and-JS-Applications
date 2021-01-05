@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+
+    <div id="root"></div>
+
+    <a href="#" onclick="navigate(event, 'about')">About</a>
+    <a href="#" onclick="navigate(event, 'home')">Home</a>
+    <a href="#" onclick="navigate(event, 'contacts')">Contacts</a>
+
+    <button id="change">Change</button>
+
+    <script>
+        const rootElement = document.getElementById('root')
+
+        const router = {
+            '/home': `<h2>Homepage</h2>`,
+            '/about': `<h2>About us</h2>`,
+            '/contacts': `<h2>Our contacts</h2>`,
+            '/changed': `<h2>Our changes</h2>`
+        };
+
+       
+
+        window.addEventListener('popstate', () => {
+            console.log('popstate')
+           rootElement.innerHTML = router[location.pathname] || `<h2>Not Found</h2>`;
+        })
+
+        // document.getElementById('change').addEventListener('click', (e) => {
+        //     // history.pushState({number: history.length}, '', `page-${history.length}`)
+            
+        // })
+        
+        // function renderHome(e) {
+        //     // e.preventDefault()
+
+        //     history.pushState({}, '', `${location.origin}/home`)
+        //     rootElement.innerHTML = `<h2>Homepage</h2>`
+        // }
+
+        function navigate(e, url) {
+          e && e.preventDefault();
+
+            history.pushState({}, '', url);
+
+            let event = new CustomEvent('popstate', {
+                state: {},
+                title: '',
+                url,
+            });
+
+            window.dispatchEvent(event)
+
+            rootElement.innerHTML = router[location.pathname] || `<h2>Not Found</h2>`;
+        }
+
+        document.getElementById('change').addEventListener('click', () => {
+            navigate(null, 'changed')
+        })
+        
+    </script>
+</body>
+</html>

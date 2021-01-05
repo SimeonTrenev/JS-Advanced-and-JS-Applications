@@ -1,0 +1,13 @@
+1.npm init --yes
+2.in package.json file - in scripts: 
+dobavqme "start": "node {filename.js}"
+3.npm install --save-dev mocha chai
+4.in package.json file - in scripts:
+"test": "mocha"
+5.npm test
+
+
+
+
+
+//npm remove -g mocha// - maha globalno mocha !!!!

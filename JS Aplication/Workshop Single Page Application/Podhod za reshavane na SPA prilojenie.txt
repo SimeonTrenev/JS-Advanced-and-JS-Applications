@@ -1,0 +1,45 @@
+1.Разделяне на HTML файла на отделни view-та в handlebars документи за всяко view(Home,offers...)
+1.1. На main скрипта в HTML документа му слагаме Id
+2.Headers and footers ги има винаги, затова си правим нова папка partials, в която ще ги сложим, защото при всички случаи ги използваме.
+3.Правим си .js файл, със <SCRIPT> в главния HTML файл и със src подаваме пътя към него.
+4.Инсталираме нуждните ни библиотеки(handlebars за Template и Sammy за рутирането, jquery за улеснение на DOM  в този случай) и ги линкваме в главния HTML файл, като
+отново използваме script и със src задаваме пътя към файла, като е важно библиотеките да бъдат преди .js файловете.
+5.В .js файла си декларираме използването на Sammy и взаимодействието му с handlebars и си правим IIFE функция с app.run() и посочваме началната страница.
+6.Подаваме функциите за изпълнение при достъпване на съоветната секция от сайта - home,contacs,about... чрез this.get(#/секция, функция) и
+след това във функцията достъпваме съоветната секция, чрез this.partial(и пътя до нея)
+7.Тъй като header и footer се използват във всяка страница, ги вкарваме в handlebars файловете, като parsial(>).
+8.Правим функция, която да подава parsials(header and footer) към всяка една секция - context.loadPartials({} - това ще бъде обект, който ще приема Parsials(в
+този случай header и неговия път и footer и неговия път))
+9.Подаваме context(global object на Sammy) на направената функция във всяка секция и след това го обработваме с .then и добавяме пътя към първоначално направения файл.
+10.Добавяме href препрадка към header документа
+11.Добавяме в header файла проверка, дали потребителят е логнат - isLoggedIn, за да му се визуализира Create new offer и Welcome
+12.Обработваме и добавяме href на всеки .hbs файл в <a> таговете
+13.Правим си backend проект във firebase, като си правим и Authentication с email
+14.Project - Project Settings - Register App и копираме целия SDK в главния ни html файл, над останалите scripts.
+15.Хубаво е да си отворим в нов линк firebase api docs - web refference - CDN и копираме последните 2 scripts - firebase-auth и 
+firebase-firestore в главния HTML файл, но след инициализацията на базата !!!!
+16.Можем информацията за конфигурацията на firebase(var файла) да си го изнесем в отделен .js файл и в скрипта сложим src линк към него
+17.Отваряме authentication и cloud firestore, за да използваме синтаксиса им
+18.Правим userModel с firebase.auth(), базовия ни url
+19.Правим post заявка на желанита секция this.post(секция, функция)
+20.Правим си action с желания път и метод (в случая POST) в секцията на register и слагаме name полета, за да достъпваме информацията
+21.Разцепваме си email,password и repassword от обекта context и неговото пропърти context.params;
+22.Правим регистрация на потребителя посредством createUserWithEmailAndPassword функцията на firebase, което ни връща promise и ние го обработваме
+23.същото като т.20, но в login.hbs
+24.Правим логиката за login на потребителя - getUserData()
+25.Определяме context.isLoggedIn в extendContext функцията
+26.Оправяме Welcome, нашето име във headera
+27.Правим логиката за signOut - .signOut() ,  this.localStorage.removeItem('user')
+28.Правим нов home.hbs с логика и #if и #each
+
+29.Правим логика за create new offer, edit offer и details
+30.Правим handlebars action и method за create-offer, както и name на различните Inputs
+31.Правим this.post на create-offer и деструктурираме обекта context.params
+32.Правим DB с firebase.firestore() и след това я инициализираме във сайта на firebase
+33.Добаваме обект със създадените Property-та към db.collection('offers').add()
+34.Трябва да свържем db със firebase, за да визуализира въведените оферти
+35.
+
+
+
+

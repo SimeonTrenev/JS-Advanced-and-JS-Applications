@@ -1,0 +1,15 @@
+За приложението съм използвал следните библиотеки :
+
+"bootstrap": "4.5.3",
+"handlebars": "4.7.6",
+"jquery": "3.5.1",
+"sammy": "0.7.6"
+
+
+Изтривам node_modules, има нужда за сваляне на библиотеките, само напишете в терминала npm install --save bootstrap handlebars jquery sammy.
+
+За backend платформа съм използвал https://develop.backendless.com .
+В scripts папката се намират всички JS файлове.
+Стартирате приложението от Index.html .
+
+Успех!

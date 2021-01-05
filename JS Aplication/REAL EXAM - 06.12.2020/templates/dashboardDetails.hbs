@@ -1,0 +1,28 @@
+{{> header}}
+
+<section id="viewMydestinations">
+    <h3>Your destinations</h3>
+    {{#each destinations}}
+    <div class="destination-ticket">
+        <div class="destination-left">
+            <img src="{{this.imgUrl}}" alt="">
+        </div>
+        <div class="destination-right">
+            <div>
+                <h3>{{this.destination}}</h3><span>{{this.departureDate}}</span>
+            </div>
+            <div>
+                to {{this.city}}
+            </div>
+            <p>{{this.duration}} days </p>
+            <a href="#/delete/{{this.id}}" class="remove">REMOVE</a>
+            <a href="#/details/{{this.id}}" class="details">Details</a>
+        </div>
+
+    </div>
+
+    </div>
+    {{/each}}
+</section>
+
+{{> footer}}

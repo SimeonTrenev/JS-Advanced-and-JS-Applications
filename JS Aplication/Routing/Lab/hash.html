@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+
+    <div id="root"></div>
+
+    <a href="#about">About</a>
+    <a href="#home">Home</a>
+    <a href="#contacts">Contacts</a>
+
+    <button id="change-hash">Change</button>
+
+    <script>
+
+        console.log(window.history)
+        const rootElement = document.getElementById('root')
+
+        const router = {
+            '#home': `<h2>Homepage</h2>`,
+            '#about': `<h2>About us</h2>`,
+            '#contacts': `<h2>Our contacts</h2>`,
+            '#changed': renderChanged()
+        };
+
+        rootElement.innerHTML = router[location.hash] || `<h2>Not found</h2>`;
+
+
+        window.addEventListener('hashchange', (e) => {
+          rootElement.innerHTML = router[location.hash] || `<h2>Not found</h2>`;
+        })
+
+        document.getElementById('change-hash').addEventListener('click', () => {
+            location.hash = 'changed'
+        })
+
+        function renderChanged() {
+
+            return `<h2>Render Changed!</h2>`
+        }
+    </script>
+</body>
+</html>

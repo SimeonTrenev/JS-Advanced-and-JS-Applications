@@ -1,0 +1,10 @@
+За приложението съм използвал следните библиотеки :
+
+"bootstrap": "4.5.3",
+"handlebars": "4.7.6",
+"jquery": "3.5.1",
+"sammy": "0.7.6"
+
+Изтривам node_modules, ако има нужда за сваляне на библиотеките, само напишете в терминала npm install --save bootstrap handlebars jquery sammy.
+
+Успех!
